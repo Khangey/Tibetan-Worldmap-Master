@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="bo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>འཛམ་གླིང་ས་བཀྲ། Tibetan Worldmap</title>
+    
+    <!-- OpenStreetMap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        /* 添加字体声明 */
+        @font-face {
+            font-family: 'Qomolangma-Uchen Sarchung';
+            src: url('fonts/Qomolangma-Uchen Sarchung.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* 全局字体设置 */
+        * {
+            font-family: 'Qomolangma-Uchen Sarchung', serif !important;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* 更新所有使用藏文的样式 */
+        .country-name-container {
+            background: none !important;
+            border: none !important;
+        }
+
+        .country-name {
+            color: #000;
+            text-align: center;
+            white-space: nowrap;
+            text-shadow: 
+                -1px -1px 0 #fff,
+                1px -1px 0 #fff,
+                -1px 1px 0 #fff,
+                1px 1px 0 #fff;
+            pointer-events: none;
+            width: 100%;
+            transform-origin: center center;
+            font-weight: normal;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .coordinate-info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 5px 10px;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+
+        /* 藏文横排样式 */
+        .tibetan-text {
+            writing-mode: horizontal-tb;
+            text-orientation: mixed;
+            direction: ltr;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* 确保 Leaflet 控件也使用正确的字体 */
+        .leaflet-container {
+            font-family: 'Qomolangma-Uchen Sarchung', serif !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div id="coordinates" class="coordinate-info"></div>
+    
+    <!-- OpenStreetMap JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
+    <script src="countries.js"></script>
+    <script src="map.js"></script>
+</body>
+</html> 
